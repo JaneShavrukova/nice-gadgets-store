@@ -290,14 +290,14 @@ export const ProductDetailsPage: React.FC = () => {
 
               {curProduct.category === ProductCategory.PHONES ||
               curProduct.category === ProductCategory.TABLETS ? (
-                <>
-                  <dt className={styles.featureName}>Camera</dt>
-                  <dd className={styles.featureValue}>{curProduct.camera}</dd>
+                  <>
+                    <dt className={styles.featureName}>Camera</dt>
+                    <dd className={styles.featureValue}>{curProduct.camera}</dd>
 
-                  <dt className={styles.featureName}>Zoom</dt>
-                  <dd className={styles.featureValue}>{curProduct.zoom}</dd>
-                </>
-              ) : null}
+                    <dt className={styles.featureName}>Zoom</dt>
+                    <dd className={styles.featureValue}>{curProduct.zoom}</dd>
+                  </>
+                ) : null}
 
               <dt className={styles.featureName}>Cell</dt>
               <dd className={styles.featureValue}>
