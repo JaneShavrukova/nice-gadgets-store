@@ -5,7 +5,7 @@ The project follows best practices in **component structuring, styling with CSS 
 
 ## 🌐 Live Demo
 
-🔗 [Live Preview](https://janeshavrukova.github.io/e-commerce-catalog/)
+🔗 [Live Preview](https://janeshavrukova.github.io/nice-gadgets-store/)
 
 ## 🖼 Design Reference
 The project is based on a provided [Figma mockup](https://www.figma.com/design/BUusqCIMAWALqfBahnyIiH/Phone-catalog-(V2)-Original-Dark?node-id=0-1&p=f&t=WH42Gsonre3DE8me-0), and implements:
@@ -63,7 +63,7 @@ The project is based on a provided [Figma mockup](https://www.figma.com/design/B
 
 ### **Global State Management**
 - **Redux Toolkit**
-  - Used for global state of Cart and Favorites
+  - Used for the global state of Cart and Favorites
   - Data persisted using Redux Persist
 - **Context API**
   - Product fetching and caching
@@ -82,7 +82,7 @@ The project is based on a provided [Figma mockup](https://www.figma.com/design/B
 ### **Extra Features**
 - **Skeleton Loading** – improve perceived performance by displaying placeholder content while data loads
 - **Multi-Language Support** – allow users to switch between different languages
-- **Theme Switching** – enable light and dark mode for better user experience
+- **Theme Switching** – enable light and dark mode for a better user experience
 
 ---
 
@@ -107,9 +107,9 @@ npm install
 npm start
 ```
 
-⸻
+---
 
 ⚙️ Requirements
 Node.js >= 20.0.0
 
-⸻
+---
