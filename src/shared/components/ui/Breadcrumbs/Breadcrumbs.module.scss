@@ -1,0 +1,49 @@
+@use '@styles/globals.scss' as *;
+
+.container {
+  margin-bottom: 40px;
+
+  @media (max-width: $mobile-breakpoint) {
+    margin-bottom: 24px;
+  }
+}
+
+.breadcrumbs {
+  @include apply-typography(small-desktop);
+
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+
+  color: $color-white;
+  gap: 8px;
+}
+
+.breadcrumbItem {
+  @extend %flex-center;
+
+  color: $color-white;
+
+  &.currentBreadcrumb {
+    color: $color-secondary;
+    cursor: default;
+  }
+}
+
+.link {
+  @include hover-text($color-accent);
+
+  color: $color-white;
+}
+
+.arrowIcon {
+  color: $color-icons;
+}
+
+.homeLink {
+  @extend %flex-center;
+  @include hover-scale(1.15);
+
+  width: 16px;
+  height: 16px;
+}

@@ -1,0 +1,30 @@
+@use '@styles/globals.scss' as *;
+
+.backToTopBlock {
+  @extend %flex-center;
+
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.text {
+  @include apply-typography(small-desktop);
+  @include hover-text($color-white);
+
+  padding-right: 16px;
+}
+
+.button {
+  @extend %flex-center;
+  @include hover-icons($color-icons);
+
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: $color-surface2;
+}
+
+.arrowIcon {
+  color: $color-white;
+  transform: rotate(270deg);
+}

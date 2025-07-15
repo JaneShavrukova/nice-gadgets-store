@@ -1,0 +1,72 @@
+@use '@styles/globals.scss' as *;
+
+.visuallyHidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.hero {
+  width: 100%;
+}
+
+.categorySection {
+  width: 100%;
+  max-width: 1136px;
+  min-height: 320px;
+  margin-bottom: 80px;
+
+  @media (max-width: $tablet-breakpoint) {
+    margin-bottom: 64px;
+    padding: 0 24px;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    margin-bottom: 56px;
+    padding: 0 16px;
+  }
+}
+
+.productsSection {
+  @extend %flex-center;
+
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 1136px;
+  min-height: 189px;
+  margin-bottom: 80px;
+
+  @media (max-width: $tablet-breakpoint) {
+    margin-bottom: 64px;
+    padding: 0 24px;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    margin-bottom: 56px;
+    padding: 0 16px;
+  }
+}
+
+.mainTitle {
+  @include apply-typography(h1-desktop);
+
+  margin: 56px 0;
+
+  @media (max-width: $tablet-breakpoint) {
+    margin: 32px 24px;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    @include apply-typography(h1-mobile);
+
+    margin: 24px 16px;
+  }
+}

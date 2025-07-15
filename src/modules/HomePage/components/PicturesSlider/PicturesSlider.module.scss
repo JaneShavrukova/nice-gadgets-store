@@ -1,0 +1,130 @@
+@use '@styles/globals.scss' as *;
+
+.container {
+  @extend %flex-center;
+
+  position: relative;
+  align-items: flex-start;
+  width: 100%;
+  height: 432px;
+
+  .swiperButtonPrev,
+  .swiperButtonNext {
+    @extend %flex-center;
+
+    position: relative;
+
+    width: 32px;
+    height: 400px;
+
+    background-color: $color-surface2;
+
+    transition: background-color 0.5s ease-in-out;
+
+    cursor: pointer;
+
+    &.swiperButtonPrev:hover,
+    &.swiperButtonNext:hover {
+      background-color: $color-icons;
+    }
+
+    @media (max-width: $tablet-breakpoint) {
+      height: 189px;
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      display: none;
+    }
+  }
+
+  .arrowIcon {
+    color: $color-white;
+  }
+
+  .arrowPrev {
+    transform: rotate(180deg);
+  }
+
+  .swiper {
+    width: 100%;
+    height: 400px;
+    margin: 0 16px;
+
+    .swiperSlide {
+      @extend %flex-center;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+      }
+
+      @media (max-width: $mobile-breakpoint) {
+        position: relative;
+
+        height: 0;
+        margin: 0;
+        padding-bottom: 100%;
+
+        overflow: hidden;
+      }
+    }
+
+    @media (max-width: $tablet-breakpoint) {
+      height: 189px;
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      height: 0;
+      margin: 0 0 8px;
+      padding-bottom: 100%;
+      overflow: hidden;
+    }
+  }
+
+  .swiperPagination {
+    @extend %flex-center;
+
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+
+    width: 100%;
+    height: 24px;
+  }
+
+  .swiperPaginationBullet {
+    @extend %flex-center;
+
+    width: 14px;
+    height: 4px;
+    margin: 0 5px;
+
+    background-color: $color-elements;
+
+    cursor: pointer;
+  }
+
+  .swiperPaginationBulletActive {
+    background-color: $color-white;
+  }
+
+  @media (max-width: $tablet-breakpoint) {
+    height: 221px;
+    padding: 0 24px;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    display: block;
+    width: 100%;
+    height: calc(100vw + 32px);
+    padding: 0;
+  }
+}

@@ -1,0 +1,364 @@
+@use '@styles/globals.scss' as *;
+
+.visuallyHidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+}
+
+.productPage {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 1136px;
+  margin: 0 auto;
+  padding: 24px 0 80px;
+
+  @media (max-width: $tablet-breakpoint) {
+    padding: 24px 24px 64px;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    padding: 24px 16px 64px;
+  }
+}
+
+.navigation {
+  margin-bottom: 16px;
+}
+
+.product {
+  display: grid;
+
+  width: 100%;
+  margin-bottom: 80px;
+  gap: 80px 16px;
+  grid-template-columns: repeat(24, 1fr);
+
+  @media (max-width: $tablet-breakpoint) {
+    margin-bottom: 64px;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 64px;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    margin-bottom: 56px;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 56px;
+  }
+}
+
+.title {
+  @include apply-typography(h2-desktop);
+
+  margin-bottom: 40px;
+
+  @media (max-width: $mobile-breakpoint) {
+    @include apply-typography(h2-mobile);
+
+    margin-bottom: 32px;
+  }
+}
+
+.gallery {
+  display: grid;
+  gap: 16px;
+  grid-column: 1 / 13;
+  grid-template-columns: repeat(12, 1fr);
+
+  @media (max-width: $tablet-breakpoint) {
+    grid-column: 1 / 8;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+  }
+}
+
+.mainImage {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  grid-column: 3 / 13;
+  grid-row: 1;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: $tablet-breakpoint) {
+    grid-column: 2 / 8;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+}
+
+.thumbnails {
+  display: grid;
+  align-self: flex-start;
+  gap: 16px;
+  grid-column: 1 / 3;
+  grid-row: 1;
+
+  li {
+    display: block;
+    line-height: 0;
+  }
+
+  @media (max-width: $tablet-breakpoint) {
+    gap: 8px;
+    grid-column: 1 / 2;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    grid-auto-flow: column;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-items: center;
+  }
+}
+
+.thumbnail {
+  @include hover-scale(1.01);
+
+  display: block;
+  border: 1px solid $color-elements;
+
+  img {
+    display: block;
+    width: 100%;
+
+    object-fit: contain;
+    aspect-ratio: 1 / 1;
+    object-position: center;
+  }
+}
+
+.activeThumbnail {
+  border: 1px solid $color-white;
+}
+
+.info {
+  grid-column: 14 / 20;
+
+  @media (max-width: $tablet-breakpoint) {
+    grid-column: 8 / -1;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    margin-top: -16px; // Adjusting vertical alignment due to grid gap inconsistency between sections
+    grid-column: 1 / -1;
+  }
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.optionsTitle {
+  @include apply-typography(small-desktop);
+
+  margin-bottom: 8px;
+}
+
+.colorsWrapper {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 24px;
+  gap: 8px;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+.colorItem {
+  @extend %flex-center;
+
+  width: 32px;
+  height: 32px;
+  border: 1px solid $color-elements;
+  border-radius: 50%;
+
+  transition: border-color 0.3s ease;
+
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid $color-secondary;
+  }
+}
+
+.activeColor {
+  border: 1px solid $color-white;
+
+  &:hover {
+    border-color: $color-white;
+  }
+}
+
+.capacityWrapper {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 24px;
+  gap: 8px;
+}
+
+.capacityItem {
+  @extend %flex-center;
+  @include apply-typography(body-desktop);
+
+  height: 32px;
+  border: 1px solid $color-icons;
+
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  cursor: pointer;
+  padding-inline: 8px;
+
+  &:hover {
+    border: 1px solid $color-white;
+  }
+}
+
+.activeCapacity {
+  color: $color-black;
+  background-color: $color-white;
+}
+
+.priceWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 8px;
+}
+
+.productPrice {
+  @include apply-typography(h2-desktop);
+}
+
+.productDiscount {
+  @include apply-typography(h3-desktop);
+
+  font-weight: 600;
+  text-decoration: line-through;
+  color: $color-secondary;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  gap: 8px;
+}
+
+.featuresList {
+  display: grid;
+  gap: 8px 16px;
+  grid-template-columns: max-content 1fr;
+}
+
+.featureName {
+  @include apply-typography(small-desktop);
+}
+
+.featureValue {
+  @include apply-typography(body-desktop);
+
+  justify-self: flex-end;
+}
+
+.description {
+  grid-column: 1 / 13;
+
+  @media (max-width: $tablet-breakpoint) {
+    grid-column: 1 / -1;
+  }
+}
+
+.descriptionTitle {
+  @include apply-typography(h2-desktop);
+
+  margin-bottom: 16px;
+
+  @media (max-width: $mobile-breakpoint) {
+    @include apply-typography(h2-mobile);
+  }
+}
+
+.descriptionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.descriptionSubtitle {
+  @include apply-typography(h3-desktop);
+
+  margin-bottom: 16px;
+
+  @media (max-width: $mobile-breakpoint) {
+    @include apply-typography(h3-mobile);
+  }
+}
+
+.descriptionText {
+  @include apply-typography(body-desktop);
+
+  color: $color-secondary;
+}
+
+.specs {
+  grid-column: 14 / -1;
+
+  .featureName {
+    @include apply-typography(body-desktop);
+
+    color: $color-secondary;
+  }
+
+  .featureValue {
+    @include apply-typography(body-desktop);
+  }
+
+  @media (max-width: $tablet-breakpoint) {
+    grid-column: 1 / -1;
+  }
+}
+
+.specsTitle {
+  @include apply-typography(h2-desktop);
+
+  margin-bottom: 16px;
+}
+
+.suggestedProducts {
+  @extend %flex-center;
+
+  flex-direction: column;
+  grid-column: 1 / -1;
+}

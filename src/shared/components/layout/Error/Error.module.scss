@@ -1,0 +1,21 @@
+@use '@styles/globals.scss' as *;
+
+.error {
+  @extend %flex-center;
+  @include apply-typography(h1-desktop);
+
+  flex-direction: column;
+  height: 100%;
+  gap: 20px;
+
+  @media (max-width: $mobile-breakpoint) {
+    @include apply-typography(h1-mobile);
+  }
+}
+
+.reloadButton {
+  @extend %primary-button;
+
+  width: 200px;
+  height: 50px;
+}

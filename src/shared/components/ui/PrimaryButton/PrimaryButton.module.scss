@@ -1,0 +1,23 @@
+@use '@styles/globals.scss' as *;
+
+.primaryButton {
+  @extend %primary-button;
+
+  &.size40 {
+    height: 40px;
+  }
+
+  &.size48 {
+    height: 48px;
+  }
+
+  &:disabled {
+    background-color: $color-surface2;
+    cursor: default;
+    pointer-events: none;
+
+    &:hover {
+      background-color: $color-surface2;
+    }
+  }
+}

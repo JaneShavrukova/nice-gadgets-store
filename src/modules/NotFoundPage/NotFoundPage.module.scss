@@ -1,0 +1,22 @@
+@use '@styles/globals.scss' as *;
+
+.notFoundPage {
+  @extend %flex-center;
+
+  flex-direction: column;
+  height: 100%;
+  gap: 20px;
+}
+
+.notFoundMessage {
+  @include apply-typography(h1-desktop);
+
+  @media (max-width: $mobile-breakpoint) {
+    @include apply-typography(h1-mobile);
+  }
+}
+
+.notFoundImg {
+  width: 100%;
+  max-width: 400px;
+}

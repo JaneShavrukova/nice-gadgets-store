@@ -1,0 +1,100 @@
+@use '@styles/globals.scss' as *;
+
+.label {
+  @include apply-typography(small-desktop);
+
+  margin-bottom: 4px;
+}
+
+.select {
+  position: relative;
+}
+
+.dropDownButton {
+  @include apply-typography(buttons-desktop);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  height: 40px;
+  border: 1px solid $color-surface2;
+
+  background-color: $color-surface2;
+
+  transition: border 0.3s ease;
+
+  cursor: pointer;
+  padding-inline: 12px;
+
+  &.open {
+    margin-bottom: 4px;
+  }
+
+  &:hover {
+    border: 1px solid $color-icons;
+  }
+
+  &:focus {
+    border: 1px solid $color-accent;
+  }
+}
+
+.arrowIcon {
+  color: $color-secondary;
+  transition: color 0.3s;
+
+  .dropDownButton:hover & {
+    color: $color-icons;
+  }
+}
+
+.arrowDown {
+  transform: rotate(90deg);
+}
+
+.arrowUp {
+  transform: rotate(270deg);
+}
+
+.dropdownContent {
+  position: absolute;
+  z-index: 100;
+
+  width: 100%;
+  padding: 8px 0;
+  border: 1px solid $color-elements;
+  background-color: $color-black;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+  transform: translateY(-10px);
+
+  &.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.option {
+  @include apply-typography(body-desktop);
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 32px;
+  padding: 6px 12px;
+
+  color: $color-secondary;
+  list-style: none;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-surface2;
+  }
+}

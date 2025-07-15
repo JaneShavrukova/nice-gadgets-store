@@ -1,21 +1,30 @@
-import React from 'react';
-import './App.scss';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
-interface Props {
-  onClick: () => void;
-  children: React.ReactNode;
-}
+import { store, persistor } from './app/store';
+import { FiltersProvider } from './contexts/FiltersContext/FiltersContext';
+import { MenuProvider } from './contexts/MenuContext/MenuContext';
+import { ProductsProvider } from './contexts/ProductsContext/ProductsContext';
+import { Footer } from './shared/components/layout/Footer/Footer';
+import { Header } from './shared/components/layout/Header';
+import { Main } from './shared/components/layout/Main';
 
-export const Provider: React.FC<Props> = React.memo(({ onClick, children }) => (
-  <button type="button" onClick={onClick}>
-    {children}
-  </button>
-));
+export const App: React.FC = () => (
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <MenuProvider>
+        <ProductsProvider>
+          <FiltersProvider>
+            <div className="App">
+              <Header />
 
-export const App: React.FC = () => {
-  return (
-    <div className="starter">
-      <Provider onClick={() => ({})}>TodoList</Provider>
-    </div>
-  );
-};
+              <Main />
+
+              <Footer />
+            </div>
+          </FiltersProvider>
+        </ProductsProvider>
+      </MenuProvider>
+    </PersistGate>
+  </Provider>
+);

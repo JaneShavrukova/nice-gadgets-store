@@ -1,0 +1,14 @@
+@use '@styles/globals.scss' as *;
+
+main {
+  display: flex;
+  justify-content: center;
+  grid-area: main;
+}
+
+.container {
+  width: 100%;
+  max-width: 1136px;
+  margin: 0 auto;
+  overflow: hidden;
+}

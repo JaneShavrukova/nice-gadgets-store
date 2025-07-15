@@ -1,10 +1,20 @@
 {
   "extends": "@mate-academy/students-ts-config",
-  "include": [
-    "src"
-  ],
+  "include": ["src", "src/types"],
   "compilerOptions": {
     "sourceMap": false,
-    "types": ["node"]
+    "types": ["node"],
+    "baseUrl": "src",
+    "jsx": "react-jsx",
+    "paths": {
+      "@contexts/*": ["contexts/*"],
+      "@shared/*": ["shared/*"],
+      "@styles/*": ["styles/*"],
+      "@assets/*": ["assets/*"],
+      "@app/*": ["app/*"],
+      "@modules/*": ["modules/*"],
+      "@features/*": ["features/*"],
+      "@types/*": ["src/types/*"]
+    }
   }
 }

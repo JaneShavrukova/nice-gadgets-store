@@ -1,0 +1,40 @@
+@use './variables' as *;
+@use './typography';
+@use 'sass:list';
+@use 'sass:map';
+
+@mixin apply-typography($style-name) {
+  $style: map.get(typography.$typography, $style-name);
+
+  @if $style {
+    font-size: list.nth($style, 1);
+    font-weight: list.nth($style, 2);
+    line-height: list.nth($style, 3);
+    letter-spacing: list.nth($style, 4);
+    color: list.nth($style, 5);
+  }
+}
+
+@mixin hover-text($color) {
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $color;
+  }
+}
+
+@mixin hover-icons($color) {
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $color;
+  }
+}
+
+@mixin hover-scale($scale) {
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale($scale);
+  }
+}

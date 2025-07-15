@@ -1,0 +1,80 @@
+@use '@styles/globals.scss' as *;
+
+.topWrapper {
+  @extend %flex-center;
+
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navButtons {
+  display: flex;
+  gap: 16px;
+}
+
+.sliderButtonPrev,
+.sliderButtonNext {
+  @extend %flex-center;
+
+  flex-direction: row;
+
+  width: 32px;
+  height: 32px;
+  border: none;
+
+  color: $color-white;
+
+  background-color: $color-surface2;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transition: background-color 0.5s ease-in-out;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-icons;
+  }
+}
+
+.prevArrow {
+  transform: rotate(180deg);
+}
+
+.lockedButton,
+.lockedButton:hover {
+  border: 1px solid $color-elements;
+  background-color: $color-surface1;
+  pointer-events: none;
+
+  &.sliderButtonPrev,
+  &.sliderButtonNext {
+    color: $color-icons;
+  }
+}
+
+.title {
+  @include apply-typography(h2-desktop);
+
+  margin: 0 0 24px;
+
+  @media (max-width: $mobile-breakpoint) {
+    @include apply-typography(h2-mobile);
+
+    width: 136px;
+    margin: 0 0 16px;
+  }
+}
+
+.swiper {
+  display: flex;
+  flex-direction: row;
+  max-width: 1136px;
+  margin: 0 auto;
+}
+
+.swiperSlide {
+  @extend %flex-center;
+
+  flex-direction: row;
+}

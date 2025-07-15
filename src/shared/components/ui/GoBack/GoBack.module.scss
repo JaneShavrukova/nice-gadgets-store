@@ -1,0 +1,19 @@
+@use '@styles/globals.scss' as *;
+
+.goBack {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arrowIcon {
+  color: $color-white;
+  transform: rotate(180deg);
+}
+
+.text {
+  @include apply-typography(small-desktop);
+  @include hover-text($color-accent);
+
+  color: $color-white;
+}

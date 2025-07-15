@@ -1,0 +1,41 @@
+@use '@styles/globals.scss' as *;
+
+.favoriteButton {
+  @extend %flex-center;
+
+  border: none;
+
+  color: $color-white;
+  background-color: $color-surface2;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $color-icons;
+  }
+}
+
+.size40 {
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.size48 {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+.isFavorite {
+  border: solid 1px $color-elements;
+  background-color: $color-surface1;
+}
+
+.heartIcon {
+  transition: all 0.3s ease;
+  fill: none;
+  stroke: $color-white;
+}
+
+.activeHeart {
+  fill: $color-red;
+  stroke: $color-red;
+}

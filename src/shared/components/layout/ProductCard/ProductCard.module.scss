@@ -1,0 +1,101 @@
+@use '@styles/globals.scss' as *;
+
+.productCard {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 506px;
+  padding: 32px;
+  border: 1px solid transparent;
+
+  background-color: $color-surface1;
+
+  &:hover {
+    border: 1px solid $color-surface2;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    height: 440px;
+  }
+}
+
+.imageWrapper {
+  @extend %flex-center;
+
+  flex-grow: 1;
+  min-height: 0;
+  margin-bottom: 16px;
+
+  cursor: pointer;
+}
+
+.productInfo {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  cursor: default;
+  gap: 8px;
+}
+
+.image {
+  @include hover-scale(1.1);
+
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.title {
+  @include apply-typography(body-desktop);
+
+  cursor: pointer;
+}
+
+.priceWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.productPrice {
+  @include apply-typography(h3-desktop);
+}
+
+.productDiscount {
+  @include apply-typography(h3-desktop);
+
+  font-weight: 600;
+  line-height: 28px;
+  text-decoration: line-through;
+  color: $color-secondary;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feature {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.featureName {
+  @include apply-typography(small-desktop);
+}
+
+.featureValue {
+  @include apply-typography(body-desktop);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}

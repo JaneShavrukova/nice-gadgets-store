@@ -1,0 +1,92 @@
+@use '@styles/globals.scss' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 100%;
+  height: 64px;
+  grid-area: header;
+
+  @media (max-width: $mobile-breakpoint) {
+    height: 48px;
+  }
+}
+
+.wrapper {
+  @extend %flex-center;
+
+  z-index: 1002;
+
+  justify-content: space-between;
+
+  height: 100%;
+
+  background-color: $color-black;
+  border-bottom: 1px solid $color-elements;
+}
+
+.headerLeft {
+  @extend %flex-center;
+
+  gap: 24px;
+
+  @media (max-width: $tablet-breakpoint) {
+    gap: 16px;
+  }
+}
+
+.headerLogo {
+  z-index: 1001;
+  width: 128px;
+  height: 64px;
+
+  img {
+    width: 80px;
+    height: 28px;
+
+    @media (max-width: $tablet-breakpoint) {
+      width: 64px;
+      height: 22px;
+    }
+  }
+
+  @media (max-width: $tablet-breakpoint) {
+    width: 96px;
+    height: 48px;
+  }
+}
+
+.linkActive {
+  color: $color-white;
+
+  &::after {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .menuContainer {
+    display: flex;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    z-index: -1;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+    height: calc(100vh - 48px);
+
+    background-color: $color-black;
+
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%);
+  }
+}
+
+.menuOpen {
+  transform: translateY(0);
+}

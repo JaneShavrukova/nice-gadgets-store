@@ -1,0 +1,68 @@
+@use '@styles/globals.scss' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 1136px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 24px 0 80px;
+
+  @media (max-width: $tablet-breakpoint) {
+    padding: 24px 24px 64px;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    padding: 24px 16px 64px;
+  }
+}
+
+.title {
+  @include apply-typography(h1-desktop);
+
+  margin-bottom: 8px;
+
+  @media (max-width: $mobile-breakpoint) {
+    @include apply-typography(h1-mobile);
+  }
+}
+
+.numOfProducts {
+  @include apply-typography(body-desktop);
+
+  margin-bottom: 40px;
+
+  color: $color-secondary;
+
+  @media (max-width: $mobile-breakpoint) {
+    margin-bottom: 32px;
+  }
+}
+
+.productsList {
+  display: grid;
+  margin-bottom: 40px;
+  gap: 40px 16px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.notFoundProducts {
+  @extend %flex-center;
+
+  flex: 1;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.notFoundMessage {
+  @include apply-typography(h2-desktop);
+}
+
+.button {
+  @extend %primary-button;
+
+  width: 200px;
+  height: 50px;
+}
