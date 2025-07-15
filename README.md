@@ -1,4 +1,4 @@
-# 📱 React Phone Catalog
+# 📱 Nice Gadgets Store
 
 A responsive e-commerce product catalog built with **React**, featuring a shopping cart, favorites, and product details.
 The project follows best practices in **component structuring, styling with CSS modules, and state management**.
